@@ -1,13 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { Container, Typography } from '@material-ui/core';
+import { Button, Container, Typography } from '@material-ui/core';
 import useStyles from '../styles';
 import './font.css'
 
 const CurrentTime = () => {
-        const [currentTime, setCurrentTime] = useState<string>(Date.now().toString());
+        const [currentTime, setCurrentTime] = useState<any>();
         useEffect(() => {
                 const setTime = setInterval(() => {
-                        setCurrentTime(new Date().toLocaleTimeString());
+                        setCurrentTime(new Date().toLocaleString('en-US', {hour12: false, hour: 'numeric',  minute: 'numeric', second: 'numeric'}));
                 }, 1000);
         }, [currentTime]);
         
@@ -23,10 +23,10 @@ const CurrentTime = () => {
                                 </Typography>
                                 <Typography variant='h3' color='textSecondary' align='center'>
                                         Current time
-                                </Typography>
+                                </Typography> 
                         </Container>
                 </main>
         )
 }
 
-export default CurrentTime
+export default CurrentTime;

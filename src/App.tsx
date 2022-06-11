@@ -1,9 +1,10 @@
 import React from 'react';
-import { CssBaseline, Typography, AppBar, Toolbar} from '@material-ui/core';
+import { CssBaseline} from '@material-ui/core';
 import useStyles from './styles';
 import Header from './components/Header';
 import CurrentTime from './components/CurrentTime';
 import Footer from './components/Footer';
+import SetAlarm from './components/SetAlarm';
 
 const App = () => {
   
@@ -13,10 +14,11 @@ const App = () => {
       <CssBaseline/> 
       <Header/>
       <CurrentTime/>
+      <SetAlarm/>
       {/**Set alarm + alarm list + routing with timer + stopwatch */}
       <Footer/>
     </div>
   );
+  
 }
-
 export default App;
