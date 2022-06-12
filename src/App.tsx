@@ -5,6 +5,7 @@ import Header from './components/Header';
 import CurrentTime from './components/CurrentTime';
 import Footer from './components/Footer';
 import SetAlarm from './components/SetAlarm';
+import AlarmList from './components/AlarmList';
 
 const App = () => {
   
@@ -15,6 +16,7 @@ const App = () => {
       <Header/>
       <CurrentTime/>
       <SetAlarm/>
+      <AlarmList isShow={false}/>
       {/**Set alarm + alarm list + routing with timer + stopwatch */}
       <Footer/>
     </div>
