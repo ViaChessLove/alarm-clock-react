@@ -16,7 +16,7 @@ const App = () => {
       <Header/>
       <CurrentTime/>
       <SetAlarm/>
-      <AlarmList isShow={false}/>
+      <AlarmList/>
       {/**Set alarm + alarm list + routing with timer + stopwatch */}
       <Footer/>
     </div>

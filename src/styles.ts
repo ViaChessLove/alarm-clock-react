@@ -35,6 +35,11 @@ const useStyles = makeStyles((theme) => ({
                         margin: theme.spacing(1),
                         width: '25ch',
                       },
+        },
+        alarm: {
+                backgroundColor: 'purple',
+                color: 'lightyellow',
+                borderRadius: '25px'
         }
 }));
 

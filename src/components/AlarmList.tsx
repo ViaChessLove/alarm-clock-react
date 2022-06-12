@@ -1,6 +1,7 @@
 import { Container, Typography } from '@material-ui/core';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import useStyles from '../styles';
+import AlarmSingle from './AlarmSingle';
 
 interface AlarmProps {
   isShow?: boolean;
@@ -9,24 +10,29 @@ interface AlarmProps {
 const AlarmList:React.FC<AlarmProps> = ({isShow}) => {
   const classes = useStyles();
   const [show, setShow] = useState<boolean>(false);
-  const array: any[] = [1, 2, 3, 4, 5];
+  const array: any[] = [1];
+  useEffect(() => {
+    if (array.length > 0){
+      setShow(true);
+    } else {
+      setShow(false)
+    }
+  }, [array]);
   return (
     <>
-    {isShow? (
+    {show? (
       <div className={classes.contentBelow}>
         <Container className = {classes.content} maxWidth = 'lg'>
           <Typography variant='h3' align='center'>
             Your alarms
           </Typography>
           <Typography variant='h3' align='center'>
-            {isShow?
-            array.map((element) => (
-              <Typography >
-                {element}
-              </Typography>
+            {array.map((element) => (
+              <AlarmSingle>
+                  {element}
+              </AlarmSingle>
                 ))
-            : 
-            undefined}
+            }
           </Typography>
         </Container>
       </div>) 
