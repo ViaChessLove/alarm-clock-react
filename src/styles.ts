@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
                 color: 'black',
                 fontWeight: 'bold',
                 fontSize: '20px',
-                height: '100vh'
+                height: '100%'
         },
         toolBar: {
                 backgroundColor: 'darkblue'
