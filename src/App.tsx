@@ -13,7 +13,7 @@ const App = () => {
   const [seconds, setSeconds] = useState<number>(0);
   const classes = useStyles();
 
-  const handleAdd = (e: React.TouchEvent) => {
+  const handleAdd = (e: React.FormEvent) => {
     console.log('you touched')
   }
 

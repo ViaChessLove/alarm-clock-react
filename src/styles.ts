@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
         }
         ,
         button: {
-                marginTop: '20px',
                 backgroundColor: 'purple',
                 color: 'lightyellow',
                 fontSize: '26px',
