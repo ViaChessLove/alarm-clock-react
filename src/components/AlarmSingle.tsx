@@ -1,20 +1,23 @@
 import React from 'react'
 import { Container, Typography } from '@material-ui/core';
+import {Time} from '../model';
 import './font.css'
 import useStyles from '../styles';
 
 interface AlarmSingleProps {
-  children?: string | number;
+  alarm: Time;
+  alarms: Time[];
+  setAlarms: React.Dispatch<React.SetStateAction<Time[]>>;
 }
 
-const AlarmSingle: React.FC<AlarmSingleProps> = ({children}) => {
+const AlarmSingle: React.FC<AlarmSingleProps> = ({alarm, alarms, setAlarms}) => {
 
   const classes = useStyles();
   return (
     <Container className={classes.alarm} maxWidth='sm'>
       <Typography variant='h4'>
         <div className="clock-font">
-          {children}
+          {alarm.hours + ':' + alarm.minutes + ':' + alarm.seconds}
         </div>
       </Typography>
     </Container>
