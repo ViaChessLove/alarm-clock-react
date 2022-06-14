@@ -6,11 +6,17 @@ import CurrentTime from './components/CurrentTime';
 import Footer from './components/Footer';
 import SetAlarm from './components/SetAlarm';
 import AlarmList from './components/AlarmList';
+import { Time } from './model';
+import AlarmSingle from './components/AlarmSingle';
 
 const App = () => {
   const [hours, setHours] = useState<number>(0);
   const [minutes, setMinutes] = useState<number>(0);
   const [seconds, setSeconds] = useState<number>(0);
+  const [alarms, setAlarms] = useState<Time[]>([]);
+  var test: Time = {hours:1, minutes:1, seconds:1};
+  const [alarm, setAlarm] = useState<Time>(test);
+
   const classes = useStyles();
 
   const handleAdd = (e: React.FormEvent) => {
@@ -31,7 +37,7 @@ const App = () => {
         setSeconds={setSeconds}
         handleAdd={handleAdd}
       />
-      <AlarmList/>
+      <AlarmSingle alarm={alarm} alarms={alarms} setAlarms={setAlarms}/>
       {/**Set alarm + alarm list + routing with timer + stopwatch */}
       <Footer/>
     </div>

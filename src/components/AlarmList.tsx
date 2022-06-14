@@ -2,22 +2,23 @@ import { Container, Typography } from '@material-ui/core';
 import React, { useEffect, useState } from 'react'
 import useStyles from '../styles';
 import AlarmSingle from './AlarmSingle';
+import { Time } from '../model';
 
 interface AlarmProps {
-  isShow?: boolean;
+  alarms: Time[];
+  setAlarms: React.Dispatch<React.SetStateAction<Time[]>>;
 }
 
-const AlarmList:React.FC<AlarmProps> = ({isShow}) => {
+const AlarmList:React.FC<AlarmProps> = ({alarms, setAlarms}) => {
   const classes = useStyles();
   const [show, setShow] = useState<boolean>(false);
-  const array: any[] = [1];
   useEffect(() => {
-    if (array.length > 0){
+    if (alarms.length > 0){
       setShow(true);
     } else {
       setShow(false)
     }
-  }, [array]);
+  }, [alarms]);
   return (
     <>
     {show? (
@@ -27,10 +28,8 @@ const AlarmList:React.FC<AlarmProps> = ({isShow}) => {
             Your alarms
           </Typography>
           <Typography variant='h3' align='center'>
-            {array.map((element) => (
-              <AlarmSingle>
-                  {element}
-              </AlarmSingle>
+            {alarms.map((alarm) => (
+              <AlarmSingle alarm={alarm} alarms={alarms} setAlarms={setAlarms}/>
                 ))
             }
           </Typography>
