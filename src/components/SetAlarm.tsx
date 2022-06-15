@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import useStyles from '../styles';
-import { Button, Container, Grid, TextField, Typography } from '@material-ui/core';
+import { Button, Container, createTheme, Grid, TextField, ThemeProvider, Typography } from '@material-ui/core';
 
 interface SetAlarmProps {
   hours: number;
@@ -20,7 +20,7 @@ const SetAlarm: React.FC<SetAlarmProps> = (
     setMinutes,
     seconds,
     setSeconds,
-    handleAdd
+    handleAdd,
   }) => {
   const classes = useStyles();
 
@@ -34,7 +34,7 @@ const SetAlarm: React.FC<SetAlarmProps> = (
     if (isNaN(seconds)){
       setSeconds(0);
     }
-  }, [hours]);
+  }, [hours, minutes, seconds]);
 
   return (
     <div className={classes.contentBelow}>
@@ -47,14 +47,17 @@ const SetAlarm: React.FC<SetAlarmProps> = (
             e.preventDefault();
             handleAdd(e);
           }}>
-            <TextField label='Hours' onChange={(e) => setHours(parseInt(e.target.value))}/>
-            <TextField label='Minutes' onChange={(e) => setMinutes(parseInt(e.target.value))}/>
-            <TextField label='Seconds' onChange={(e) => setSeconds(parseInt(e.target.value))}/>
+            <Container>
+              <TextField label='Hours' onChange={(e) => setHours(parseInt(e.target.value))}/>
+              <TextField label='Minutes' onChange={(e) => setMinutes(parseInt(e.target.value))}/>
+              <TextField label='Seconds' onChange={(e) => setSeconds(parseInt(e.target.value))}/>
+            </Container>
             <Grid container justify='center' style={{marginTop: '30px'}}>
-              
+            <div> 
               <Button size="medium" variant='contained' className={classes.button} type='submit'>
                 Set alarm
               </Button>
+            </div>
             </Grid>
           </form>
         </Grid>

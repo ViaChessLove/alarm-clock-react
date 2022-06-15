@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
                       },
         },
         alarm: {
+                marginTop: '15px',
                 backgroundColor: 'purple',
                 color: 'lightyellow',
                 borderRadius: '25px'

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Typography } from '@material-ui/core';
 import {Time} from '../model';
 import './font.css'
@@ -11,13 +11,26 @@ interface AlarmSingleProps {
 }
 
 const AlarmSingle: React.FC<AlarmSingleProps> = ({alarm, alarms, setAlarms}) => {
-
+  const [hours, setHours] = useState<string>(alarm.hours + '');
+  const [minutes, setMinutes] = useState<string>(alarm.minutes + '');
+  const [seconds, setSeconds] = useState<string>(alarm.seconds + '');
+  useEffect(() => {
+    if (alarm.hours && alarm.hours < 10) {
+      setHours('0' + alarm.hours);
+    }
+    if (alarm.minutes && alarm.minutes < 10) {
+      setMinutes('0' + alarm.minutes);
+    }
+    if (alarm.seconds && alarm.seconds < 10) {
+      setSeconds('0' + alarm.seconds);
+    }
+  }, [alarm.hours, alarm.minutes, alarm.seconds])
   const classes = useStyles();
   return (
     <Container className={classes.alarm} maxWidth='sm'>
       <Typography variant='h4'>
         <div className="clock-font">
-          {alarm.hours + ' :' + alarm.minutes + ' :' + alarm.seconds}
+          {hours + ':' + minutes + ':' + seconds}
         </div>
       </Typography>
     </Container>

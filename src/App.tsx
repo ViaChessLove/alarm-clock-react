@@ -14,15 +14,19 @@ const App = () => {
   const [minutes, setMinutes] = useState<number>(0);
   const [seconds, setSeconds] = useState<number>(0);
   const [alarms, setAlarms] = useState<Time[]>([]);
-  var test: Time = {hours:1, minutes:1, seconds:1};
+  /*
+  var test: Time = {id: Math.random(), hours:1, minutes:1, seconds:1};
   const [alarm, setAlarm] = useState<Time>(test);
-
+  */
   const classes = useStyles();
 
-  const handleAdd = (e: React.FormEvent) => {
-    console.log('you touched')
+  const handleAdd = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (hours >0 || minutes > 0 || seconds > 0){
+      setAlarms([...alarms, {id: Math.random(), hours:hours, minutes:minutes, seconds:seconds}]);
+    }
   }
-
+  
   return (
     <div className = {classes.appWrapper}>
       <CssBaseline/> 
@@ -37,7 +41,7 @@ const App = () => {
         setSeconds={setSeconds}
         handleAdd={handleAdd}
       />
-      <AlarmSingle alarm={alarm} alarms={alarms} setAlarms={setAlarms}/>
+      <AlarmList alarms={alarms} setAlarms={setAlarms}/>
       {/**Set alarm + alarm list + routing with timer + stopwatch */}
       <Footer/>
     </div>

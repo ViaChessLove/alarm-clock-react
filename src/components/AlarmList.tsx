@@ -29,7 +29,7 @@ const AlarmList:React.FC<AlarmProps> = ({alarms, setAlarms}) => {
           </Typography>
           <Typography variant='h3' align='center'>
             {alarms.map((alarm) => (
-              <AlarmSingle alarm={alarm} alarms={alarms} setAlarms={setAlarms}/>
+              <AlarmSingle key={alarm.id} alarm={alarm} alarms={alarms} setAlarms={setAlarms}/>
                 ))
             }
           </Typography>

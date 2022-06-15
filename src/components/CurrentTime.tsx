@@ -9,6 +9,7 @@ const CurrentTime = () => {
                 const setTime = setInterval(() => {
                         setCurrentTime(new Date().toLocaleString('en-US', {hour12: false, hour: 'numeric',  minute: 'numeric', second: 'numeric'}));
                 }, 1000);
+                
         }, [currentTime]);
         
         const classes = useStyles();
