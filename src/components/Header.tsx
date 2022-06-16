@@ -6,7 +6,7 @@ import useStyles from '../styles';
 const Header = () => {
         const classes = useStyles();
         return (
-                <>
+                <header>
                         <AppBar position='fixed'>
                                 <Toolbar className={classes.toolBar}>
                                         <Grid container justify='space-between'>
@@ -17,7 +17,7 @@ const Header = () => {
                                         </Grid>
                                 </Toolbar>
                         </AppBar>
-                </>
+                </header>
         )
 }
 

@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
         button: {
                 backgroundColor: 'purple',
                 color: 'lightyellow',
-                fontSize: '26px',
+                fontSize: '22px',
                 '&:hover': {
                         backgroundColor:'pink',
                         transition: '3s'
