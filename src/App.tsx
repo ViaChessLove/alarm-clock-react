@@ -8,6 +8,7 @@ import SetAlarm from './components/SetAlarm';
 import AlarmList from './components/AlarmList';
 import { Time } from './model';
 import AlarmSingle from './components/AlarmSingle';
+import { GlobalStyles } from './GlobalStyles.style';
 
 const App = () => {
   const [hours, setHours] = useState<number>(0);
@@ -22,6 +23,8 @@ const App = () => {
 
   const handleAdd = (event: React.FormEvent) => {
     event.preventDefault();
+    
+    
     if (hours >0 || minutes > 0 || seconds > 0){
       setAlarms([...alarms, {id: Math.random(), hours:hours, minutes:minutes, seconds:seconds}]);
     }
@@ -30,6 +33,7 @@ const App = () => {
   return (
     <div className = {classes.appWrapper}>
       <CssBaseline/> 
+      <GlobalStyles/>
       <Header/>
       <CurrentTime/>
       <SetAlarm 
