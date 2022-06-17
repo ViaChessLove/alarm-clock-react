@@ -24,7 +24,28 @@ const AlarmSingle: React.FC<AlarmSingleProps> = ({alarm, alarms, setAlarms}) => 
     if (alarm.seconds && alarm.seconds < 10) {
       setSeconds('0' + alarm.seconds);
     }
-  }, [alarm.hours, alarm.minutes, alarm.seconds])
+  }, [alarm.hours, alarm.minutes, alarm.seconds]);
+  useEffect(() => {
+    const timeout = setInterval(() =>{
+      const currTime: string = new Date().toLocaleString('en-US', {hour12: false, hour: 'numeric',  minute: 'numeric', second: 'numeric'});
+      const time: string[] = currTime.split(':');
+      const hours: number = parseInt(time[0]);
+      const minutes: number = parseInt(time[1]);
+      const seconds: number = parseInt(time[2]);
+      if (alarm.hours === undefined) {
+        alarm.hours = 0;
+      }
+      if (alarm.minutes === undefined) {
+        alarm.minutes = 0;
+      }
+      if (alarm.seconds === undefined) {
+        alarm.seconds = 0;
+      }
+      if ((hours*3600 + minutes*60 + seconds) === (alarm.hours*3600 + alarm.minutes*60 + alarm.seconds)){
+        alert('Pora vstavat`')
+      }
+    }, 500);
+  }, [])
   const classes = useStyles();
   return (
     <Container className={classes.alarm} maxWidth='sm'>

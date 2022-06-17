@@ -2,29 +2,29 @@ import {makeStyles} from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
         appWrapper: {
-                backgroundColor: '#f0f0f0',
+                height: '-webkit-fill-available',
+                background: '#f0f0f0',
                 color: 'black',
                 fontWeight: 'bold',
                 fontSize: '20px',
-                height: '100%'
         },
         toolBar: {
-                backgroundColor: 'darkblue'
+                backgroundColor: 'darkblue',
         }, 
         content: {
                 padding: theme.spacing(10, 0, 6),
                 backgroundColor: theme.palette.background.paper,
-                borderRadius: '25px'
+                borderRadius: '25px',
         },
         contentBelow: {
                 marginTop: '20px'
         }
         ,
         button: {
-                backgroundColor: 'purple',
-                color: 'lightyellow',
-                fontSize: '22px',
-                '&:hover': {
+                backgroundColor: 'purple!important' as 'backgroundColor',
+                color: 'lightyellow!important' as 'color',
+                fontSize: '22px!important' as 'fontSize',
+                '&:hover!important': {
                         backgroundColor:'pink',
                         transition: '3s'
                 }

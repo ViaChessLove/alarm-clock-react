@@ -19,7 +19,7 @@ const AlarmList:React.FC<AlarmProps> = ({alarms, setAlarms}) => {
     } else {
       setShow(false)
     }
-  }, [alarms, alarmList]);
+  }, [alarms]);
   const undefinedToZero = (element: number | undefined): number => {
     if (element === undefined){
       element = 0;
@@ -49,7 +49,7 @@ const AlarmList:React.FC<AlarmProps> = ({alarms, setAlarms}) => {
             Your alarms
           </Typography>
           <Typography variant='h3' align='center'>
-            {alarmList.map((alarm) => (
+            {alarms.map((alarm) => (
               <AlarmSingle key={alarm.id} alarm={alarm} alarms={alarms} setAlarms={setAlarms}/>
                 ))
             }
@@ -57,8 +57,7 @@ const AlarmList:React.FC<AlarmProps> = ({alarms, setAlarms}) => {
           
           <Grid container justify='center' style={{marginTop: '30px'}}>
             <Button size="medium" variant='contained' className={classes.button} onClick={() => {
-              alarms.sort(compareSeconds)
-              setAlarmList(alarms)
+              alarms.sort(compareSeconds);
               }}>
               Sort Alarms
             </Button>
