@@ -40,7 +40,16 @@ const useStyles = makeStyles((theme) => ({
                 backgroundColor: 'purple',
                 color: 'lightyellow',
                 borderRadius: '25px'
-        }
+        },
+        drawer: {
+                width: '240px',
+        },
+        drawerPaper: {
+                width: '240px',
+        },
+        drawerContainer: {
+                overflow: 'hidden',
+        },
 }));
 
 

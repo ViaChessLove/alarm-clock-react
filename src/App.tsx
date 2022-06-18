@@ -9,6 +9,7 @@ import AlarmList from './components/AlarmList';
 import { Time } from './model';
 import AlarmSingle from './components/AlarmSingle';
 import { GlobalStyles } from './GlobalStyles.style';
+import AlarmDrawer from './components/AlarmDrawer';
 
 const App = () => {
   const [hours, setHours] = useState<number>(0);
@@ -36,16 +37,17 @@ const App = () => {
       <GlobalStyles/>
       <Header/>
       <CurrentTime/>
-      <SetAlarm 
-        hours={hours} 
-        setHours={setHours}
-        minutes={minutes}
-        setMinutes={setMinutes}
-        seconds={seconds}
-        setSeconds={setSeconds}
-        handleAdd={handleAdd}
-      />
-      <AlarmList alarms={alarms} setAlarms={setAlarms}/>
+        <SetAlarm 
+            hours={hours} 
+            setHours={setHours}
+            minutes={minutes}
+            setMinutes={setMinutes}
+            seconds={seconds}
+            setSeconds={setSeconds}
+            handleAdd={handleAdd}
+        />
+        <AlarmList alarms={alarms} setAlarms={setAlarms}/>
+      <AlarmDrawer/>
       {/**Set alarm + alarm list + routing with timer + stopwatch */}
       <Footer/>
     </div>
