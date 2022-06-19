@@ -2,9 +2,9 @@ import React from 'react'
 
 const Stopwatch = () => {
   return (
-    <div>
+    <main>
       
-    </div>
+    </main>
   )
 }
 

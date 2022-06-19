@@ -10,6 +10,10 @@ import { Time } from './model';
 import AlarmSingle from './components/AlarmSingle';
 import { GlobalStyles } from './GlobalStyles.style';
 import AlarmDrawer from './components/AlarmDrawer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Alarm from './pages/Alarm';
+import Stopwatch from './pages/Stopwatch';
+import Timer from './pages/Timer';
 
 const App = () => {
   const [hours, setHours] = useState<number>(0);
@@ -32,25 +36,32 @@ const App = () => {
   }
   
   return (
-    <div className = {classes.appWrapper}>
-      <CssBaseline/> 
-      <GlobalStyles/>
-      <Header/>
-      <CurrentTime/>
-        <SetAlarm 
-            hours={hours} 
-            setHours={setHours}
-            minutes={minutes}
-            setMinutes={setMinutes}
-            seconds={seconds}
-            setSeconds={setSeconds}
-            handleAdd={handleAdd}
-        />
-        <AlarmList alarms={alarms} setAlarms={setAlarms}/>
-      <AlarmDrawer/>
-      {/**Set alarm + alarm list + routing with timer + stopwatch */}
-      <Footer/>
-    </div>
+    <BrowserRouter>
+      <div className = {classes.appWrapper}>
+        <CssBaseline/> 
+        <GlobalStyles/>
+        <Header/>
+        <Routes>
+          <Route index  element={<Alarm/>}/>
+          <Route path='/stopwatch' element={<Stopwatch/>}/>
+          <Route path='/timer' element={<Timer/>}/>
+        </Routes>
+        <CurrentTime/>
+          <SetAlarm 
+              hours={hours} 
+              setHours={setHours}
+              minutes={minutes}
+              setMinutes={setMinutes}
+              seconds={seconds}
+              setSeconds={setSeconds}
+              handleAdd={handleAdd}
+          />
+          <AlarmList alarms={alarms} setAlarms={setAlarms}/>
+        <AlarmDrawer/>
+        {/**Set alarm + alarm list + routing with timer + stopwatch */}
+        <Footer/>
+      </div>
+    </BrowserRouter>
   );
   
 }
