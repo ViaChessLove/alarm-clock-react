@@ -6,6 +6,9 @@ import useStyles from '../styles';
 
 const AlarmDrawer = () => {
   const classes = useStyles();
+  const x = 1;
+  const line = '';
+  console.log(x);
   return (
     <>
       <Drawer
@@ -15,8 +18,8 @@ const AlarmDrawer = () => {
           paper: classes.drawerPaper,
         }}
         
-        >
-          <Toolbar />
+      >
+        <Toolbar />
         <div className={classes.drawerContainer}>
           <List>
             {['Alarm', 'Timer', 'Stopwatch'].map((text, index) => (
@@ -24,7 +27,7 @@ const AlarmDrawer = () => {
                 <ListItemIcon>{index === 0 ? <AccessAlarm />: (index ===1 ? <Timer/>: <AvTimer/>)}</ListItemIcon>
                 <Link style={{textDecoration:'none', color:'black'}} 
                   to={index === 0 ? '/' : (index === 1 ? '/timer': '/stopwatch')}>
-                    <ListItemText primary={text} />
+                  <ListItemText primary={text} />
                 </Link>
               </ListItem>
             ))}

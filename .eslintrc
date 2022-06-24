@@ -6,6 +6,12 @@
     ],
     "rules": {
         "no-unused-vars": "off",  
-        "@typescript-eslint/no-unused-vars": ["error"]
+        "@typescript-eslint/no-unused-vars": ["off"],
+        "no-console": "warn",
+        "quotes": ["warn", "single"],
+        "jsx-quotes": ["error", "prefer-double"],
+        "prefer-const": "error",
+        "func-style": ["warn", "expression"],
+        "indent": ["warn", 2]
     }
 }

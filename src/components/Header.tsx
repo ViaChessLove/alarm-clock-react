@@ -4,21 +4,21 @@ import {Alarm} from '@material-ui/icons'
 import useStyles from '../styles';
 
 const Header = () => {
-        const classes = useStyles();
-        return (
-                <header>
-                        <AppBar position='fixed'>
-                                <Toolbar className={classes.toolBar}>
-                                        <Grid container justify='space-between'>
-                                                <Alarm fontSize='large'/>
-                                                <Typography variant='h4'align='right'>
+  const classes = useStyles();
+  return (
+    <header>
+      <AppBar position="fixed">
+        <Toolbar className={classes.toolBar}>
+          <Grid container justify="space-between">
+            <Alarm fontSize="large"/>
+            <Typography variant="h4"align="right">
                                                         Alarm Clock App
-                                                </Typography>
-                                        </Grid>
-                                </Toolbar>
-                        </AppBar>
-                </header>
-        )
+            </Typography>
+          </Grid>
+        </Toolbar>
+      </AppBar>
+    </header>
+  )
 }
 
 export default Header

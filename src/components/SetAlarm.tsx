@@ -38,26 +38,26 @@ const SetAlarm: React.FC<SetAlarmProps> = (
 
   return (
     <div className={classes.contentBelow}>
-      <Container className={classes.content} maxWidth='lg'>
-        <Typography variant='h2' align='center' color='inherit'>
+      <Container className={classes.content} maxWidth="lg">
+        <Typography variant="h2" align="center" color="inherit">
             Set alarm
         </Typography>
-        <Grid container justify='center'>
-          <form autoComplete='true' className={classes.form} onSubmit={(e) => {
+        <Grid container justify="center">
+          <form autoComplete="true" className={classes.form} onSubmit={(e) => {
             e.preventDefault();
             handleAdd(e);
           }}>
             <Container>
-              <TextField label='Hours' onChange={(e) => setHours(parseInt(e.target.value))}/>
-              <TextField label='Minutes' onChange={(e) => setMinutes(parseInt(e.target.value))}/>
-              <TextField label='Seconds' onChange={(e) => setSeconds(parseInt(e.target.value))}/>
+              <TextField label="Hours" onChange={(e) => setHours(parseInt(e.target.value))}/>
+              <TextField label="Minutes" onChange={(e) => setMinutes(parseInt(e.target.value))}/>
+              <TextField label="Seconds" onChange={(e) => setSeconds(parseInt(e.target.value))}/>
             </Container>
-            <Grid container justify='center' style={{marginTop: '30px'}}>
-            <div> 
-              <Button size="medium" variant='contained' className={classes.button} type='submit'>
+            <Grid container justify="center" style={{marginTop: '30px'}}>
+              <div> 
+                <Button size="medium" variant="contained" className={classes.button} type="submit">
                 Set alarm
-              </Button>
-            </div>
+                </Button>
+              </div>
             </Grid>
           </form>
         </Grid>

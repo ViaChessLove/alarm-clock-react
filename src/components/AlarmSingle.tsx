@@ -48,8 +48,8 @@ const AlarmSingle: React.FC<AlarmSingleProps> = ({alarm, alarms, setAlarms}) => 
   }, [])
   const classes = useStyles();
   return (
-    <Container className={classes.alarm} maxWidth='sm'>
-      <Typography variant='h4'>
+    <Container className={classes.alarm} maxWidth="sm">
+      <Typography variant="h4">
         <div className="clock-font">
           {hours + ':' + minutes + ':' + seconds}
         </div>

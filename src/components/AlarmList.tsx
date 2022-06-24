@@ -10,6 +10,9 @@ interface AlarmProps {
 }
 
 const AlarmList:React.FC<AlarmProps> = ({alarms, setAlarms}) => {
+  function abc(){
+    
+  }
   const classes = useStyles();
   const [show, setShow] = useState<boolean>(false);
   const [alarmList, setAlarmList] = useState<Time[]>(alarms);
@@ -38,33 +41,33 @@ const AlarmList:React.FC<AlarmProps> = ({alarms, setAlarms}) => {
     
     return (left.hours && left.minutes && left.seconds
          && right.hours && right.minutes && right.seconds!==undefined)? 
-         (left.hours - right.hours)*3600 + (left.minutes - right.minutes)*60 + (left.seconds - right.seconds): 1;
+      (left.hours - right.hours)*3600 + (left.minutes - right.minutes)*60 + (left.seconds - right.seconds): 1;
   }
   return (
     <>
-    {show? (
-      <div className={classes.contentBelow}>
-        <Container className = {classes.content} maxWidth = 'lg'>
-          <Typography variant='h3' align='center'>
+      {show? (
+        <div className={classes.contentBelow}>
+          <Container className = {classes.content} maxWidth = "lg">
+            <Typography variant="h3" align="center">
             Your alarms
-          </Typography>
-          <Typography variant='h3' align='center'>
-            {alarms.map((alarm) => (
-              <AlarmSingle key={alarm.id} alarm={alarm} alarms={alarms} setAlarms={setAlarms}/>
-                ))
-            }
-          </Typography>
+            </Typography>
+            <Typography variant="h3" align="center">
+              {alarms.map((alarm) => (
+                <AlarmSingle key={alarm.id} alarm={alarm} alarms={alarms} setAlarms={setAlarms}/>
+              ))
+              }
+            </Typography>
           
-          <Grid container justify='center' style={{marginTop: '30px'}}>
-            <Button size="medium" variant='contained' className={classes.button} onClick={() => {
-              alarms.sort(compareSeconds);
+            <Grid container justify="center" style={{marginTop: '30px'}}>
+              <Button size="medium" variant="contained" className={classes.button} onClick={() => {
+                alarms.sort(compareSeconds);
               }}>
               Sort Alarms
-            </Button>
-          </Grid>
-        </Container>
-      </div>) 
-      : undefined}
+              </Button>
+            </Grid>
+          </Container>
+        </div>) 
+        : undefined}
     </>
     
   )

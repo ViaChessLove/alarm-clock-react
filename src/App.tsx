@@ -43,20 +43,20 @@ const App = () => {
         <Header/>
         <Routes>
           <Route index  element={<Alarm/>}/>
-          <Route path='/stopwatch' element={<Stopwatch/>}/>
-          <Route path='/timer' element={<Timer/>}/>
+          <Route path="/stopwatch" element={<Stopwatch/>}/>
+          <Route path="/timer" element={<Timer/>}/>
         </Routes>
         <CurrentTime/>
-          <SetAlarm 
-              hours={hours} 
-              setHours={setHours}
-              minutes={minutes}
-              setMinutes={setMinutes}
-              seconds={seconds}
-              setSeconds={setSeconds}
-              handleAdd={handleAdd}
-          />
-          <AlarmList alarms={alarms} setAlarms={setAlarms}/>
+        <SetAlarm 
+          hours={hours} 
+          setHours={setHours}
+          minutes={minutes}
+          setMinutes={setMinutes}
+          seconds={seconds}
+          setSeconds={setSeconds}
+          handleAdd={handleAdd}
+        />
+        <AlarmList alarms={alarms} setAlarms={setAlarms}/>
         <AlarmDrawer/>
         {/**Set alarm + alarm list + routing with timer + stopwatch */}
         <Footer/>
